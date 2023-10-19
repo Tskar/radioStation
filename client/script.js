@@ -4,7 +4,7 @@
      * Object record to populate the record div in the webpage.
      */
     let records = [
-        {name: 'The Pot', artist: 'Tool', album: '10000 Days'},
+        {name: 'Vicarious', artist: 'Tool', album: '10000 Days'},
         {name: "Dreams", artist: "Fleetwood Mac", album: "Rumours"},
         {name: "The Grudge", artist: "Tool", album: "Lateralus"},
         {name: "Sober", artist: "Tool", album: "10000 Days"},
@@ -13,6 +13,15 @@
     ];
 
     console.log(records)
+
+    records = records.map(obj => {
+        if(obj.name === "Vicarious" && obj.artist === 'Tool') {
+            return {...obj, name:"Jambi"};
+        }
+        return obj;
+    });
+     console.log(records)
+
 
     /**
      * Loop through each record in the object to read the input and
@@ -85,7 +94,7 @@
     /**
      * Inform user that they picked a certain time-slot!
      */
-    var pth = document.getElementById('time-list').getElementsByTagName('li');
+    const pth = document.getElementById('time-list').getElementsByTagName('li');
     for(var i = 0; i < pth.length; i++) {
         pth[i].addEventListener("click", function(e) {
             alert("Time picked: " + this.innerText);
